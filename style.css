@@ -6,7 +6,8 @@
 
 body {
     font-family: 'Nunito', sans-serif;
-    padding: calc(1em + 4vw);
+    padding: calc(.5em + 4vw);
+    touch-action: manipulation;
 }
 
 .d-none {
@@ -14,7 +15,7 @@ body {
 }
 
 .almostFull {
-    background-color: orange;
+    background-color: #ffb74d88;
 }
 
 .detailsForm {
@@ -24,12 +25,22 @@ body {
     align-items: center;
     margin: auto;
     margin-bottom: 1em;
+    width: max-content;
 }   
+
+.detailsForm label {
+    width: 30ch;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: hsl(210, 5%, 96%);
+    padding: .25em .75em;
+}
 
 .detailsForm input {
     padding: .25em .5em;
     font-size: 1.25rem;
-    max-width: 100%;
+    width: 6ch;
 }
 
 .buttons {
@@ -41,7 +52,7 @@ body {
 
 button {
     all: unset;
-    border: 1px solid dodgerblue;
+    border: 2px solid hsla(210, 100%, 56%, .2);
     padding: .5em 2em;
     min-width: 2ch;
     display: flex;
@@ -65,12 +76,13 @@ button:active {
 }
 
 button:focus {
-    background-color: hsl(210, 70%, 86%);
+    border-color: #2228;
 }
 
 .details {
     display: flex;
     gap: 1em;
+    margin: auto;
 }
 
 .details > * {
