@@ -23,6 +23,7 @@ body {
     gap: 1em;
     align-items: center;
     margin: auto;
+    margin-bottom: 1em;
 }   
 
 .detailsForm input {
