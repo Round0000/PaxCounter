@@ -34,7 +34,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: hsl(210, 5%, 96%);
-    padding: .25em .75em;
+    padding: .5em .75em;
 }
 
 .detailsForm input {
