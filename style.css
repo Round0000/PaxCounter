@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    padding: calc(1em + 4vw);
+}
+
+.d-none {
+    display: none !important;
+}
+
+.almostFull {
+    background-color: orange;
+}
+
+.detailsForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    margin: auto;
+}   
+
+.detailsForm input {
+    padding: .25em .5em;
+    font-size: 1.25rem;
+    max-width: 100%;
+}
+
+.buttons {
+    display: flex;
+    width: max-content;
+    gap: 1em;
+    margin: 2em auto;
+}
+
+button {
+    all: unset;
+    border: 1px solid dodgerblue;
+    padding: .25em .5em;
+    min-width: 2ch;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(210, 20%, 96%);
+    font-weight: bold;
+}
+
+.buttons button {
+    width: 1.5em;
+    height: 1.5em;
+    font-size: calc(2rem + 4vw);
+}
+
+button:active {
+    background-color: hsl(210, 80%, 92%);
+}
+
+button:focus {
+    background-color: hsl(210, 70%, 86%);
+}
+
+.details {
+    display: flex;
+    gap: 1em;
+}
+
+.details > * {
+    background-color: hsl(210, 20%, 95%);
+    padding: .5em;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.sessionUI span {
+    display: block;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+button.reset {
+    margin: auto;
+    margin-top: 6em;
+    padding: .5em 2em;
+}

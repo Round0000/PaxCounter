@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Pax Counter</title>
+</head>
+<body>
+
+    <form class="detailsForm">
+        <div>
+            <label>
+                Nombre total de pax
+                <input type="number" name="paxQuantity" required>
+            </label>
+        </div>
+        <div>
+            <label>
+                Nombre de bus
+                <input type="number" name="busQuantity" required>
+            </label>
+        </div>
+        <button type="submit">Confirmer</button>
+    </form>
+
+    <div class="sessionUI">
+        <div class="details">
+            <div class="startDetails">
+                <p>Nombre de pax : <span class="totalPax"></span></p>
+                <p>Nombre de bus : <span class="totalBus"></span></p>
+                <p>Répartition équilibrée pax/bus : <span class="equalSplit"></span></p>
+            </div>
+            <div class="currentDetails">
+                <p>Pax restants : <span class="remainingPax"></span></p>
+                <p>Pax dans le bus : <span class="currentCount"></span></p>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="minus">-</button>
+            <button class="plus">+</button>
+        </div>
+
+        <button class="reset">Reset</button>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
