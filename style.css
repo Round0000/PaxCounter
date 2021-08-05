@@ -8,6 +8,7 @@ body {
     font-family: 'Nunito', sans-serif;
     padding: calc(.5em + 4vw);
     touch-action: manipulation;
+    background-color: #222;
 }
 
 .d-none {
@@ -84,6 +85,7 @@ button:focus {
 .details {
     display: flex;
     gap: 1em;
+    max-width: 700px;
     margin: auto;
 }
 
@@ -94,6 +96,7 @@ button:focus {
     display: flex;
     flex-direction: column;
     gap: 1em;
+    max-width: 60ch;
 }
 
 .sessionUI span {
