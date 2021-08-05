@@ -25,6 +25,7 @@ body {
     margin: auto;
     margin-bottom: 1em;
     width: max-content;
+    padding: 2em;
 }   
 
 .detailsForm label {
@@ -33,13 +34,15 @@ body {
     align-items: center;
     background-color: hsl(210, 5%, 96%);
     padding: .5em .75em;
-    gap: 1em;
+    gap: 1.5em;
+    outline: 1px solid hsl(210, 5%, 96%);
+    outline-offset: 2px;
 }
 
 .detailsForm input {
     padding: .25em .5em;
     font-size: 1.25rem;
-    width: 10ch;
+    width: 8ch;
 }
 
 .buttons {
