@@ -9,14 +9,14 @@ const remainingPaxDisplay = document.querySelector('.remainingPax');
 const detailsForm = document.querySelector('.detailsForm');
 const sessionUI = document.querySelector('.sessionUI');
 
-let currentSession = {};
+let session = {};
 
 const updateUI = () => {
-    currentCountDisplay.innerText = currentSession.currentCount;
-    remainingPaxDisplay.innerText = currentSession.remainingPax;
-    console.log(currentSession);
+    currentCountDisplay.innerText = session.currentCount;
+    remainingPaxDisplay.innerText = session.remainingPax;
+    console.log(session);
 
-    if (currentSession.currentCount >= 40) {
+    if (session.currentCount >= 40) {
         currentCountDisplay.classList.add('almostFull');
     } else if (document.querySelector('.almostFull')) {
         currentCountDisplay.classList.remove('almostFull');
@@ -26,16 +26,16 @@ const updateUI = () => {
 detailsForm.addEventListener('submit', e => {
     e.preventDefault();
 
-    currentSession.totalPax = e.target.paxQuantity.value;
-    totalPaxDisplay.innerText = currentSession.totalPax;
-    currentSession.totalBus = e.target.busQuantity.value;
-    totalBusDisplay.innerText = currentSession.totalBus;
-    currentSession.remainingPax = currentSession.totalPax;
-    currentSession.currentCount = 0;
+    session.totalPax = e.target.paxQuantity.value;
+    totalPaxDisplay.innerText = session.totalPax;
+    session.totalBus = e.target.busQuantity.value;
+    totalBusDisplay.innerText = session.totalBus;
+    session.remainingPax = session.totalPax;
+    session.currentCount = 0;
 
-    equalSplitDisplay.innerText = Math.round(currentSession.totalPax / currentSession.totalBus);
+    equalSplitDisplay.innerText = Math.round(session.totalPax / session.totalBus);
 
-    currentSession.ongoing = true;
+    session.ongoing = true;
 
     updateUI();
 
@@ -45,37 +45,37 @@ detailsForm.addEventListener('submit', e => {
 });
 
 buttonPlus.addEventListener('click', e => {
-    if (currentSession.remainingPax > 0) {
-        currentSession.currentCount += 1;
-        currentSession.remainingPax = currentSession.totalPax - currentSession.currentCount;
+    if (session.remainingPax > 0) {
+        session.currentCount += 1;
+        session.remainingPax = session.totalPax - session.currentCount;
         updateUI();
     }
 });
 
 buttonMinus.addEventListener('click', e => {
-    if (currentSession.currentCount > 0) {
-        currentSession.currentCount -= 1;
-        currentSession.remainingPax = currentSession.totalPax - currentSession.currentCount;
+    if (session.currentCount > 0) {
+        session.currentCount -= 1;
+        session.remainingPax = session.totalPax - session.currentCount;
         updateUI();
     };
 });
 
 window.addEventListener('keydown', (event) => {
-    if (event.code === 'ArrowRight' && currentSession.ongoing && currentSession.remainingPax > 0) {
-        currentSession.currentCount += 1;
-        currentSession.remainingPax = currentSession.totalPax - currentSession.currentCount;
+    if (event.code === 'ArrowRight' && session.ongoing && session.remainingPax > 0) {
+        session.currentCount += 1;
+        session.remainingPax = session.totalPax - session.currentCount;
         updateUI();
     }
-    if (event.code === 'ArrowLeft' && currentSession.ongoing && currentSession.currentCount > 0) {
-        currentSession.currentCount -= 1;
-        currentSession.remainingPax = currentSession.totalPax - currentSession.currentCount;
+    if (event.code === 'ArrowLeft' && session.ongoing && session.currentCount > 0) {
+        session.currentCount -= 1;
+        session.remainingPax = session.totalPax - session.currentCount;
         updateUI();
       }
   });
 
 buttonReset.addEventListener('click', e => {
     if (window.confirm('Are you sure you want to reset ?')) {
-        currentSession = {};
+        session = {};
         sessionUI.classList.add("d-none");
         detailsForm.classList.remove("d-none");
     };

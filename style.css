@@ -22,25 +22,24 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    align-items: center;
     margin: auto;
     margin-bottom: 1em;
     width: max-content;
 }   
 
 .detailsForm label {
-    width: 30ch;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: hsl(210, 5%, 96%);
     padding: .5em .75em;
+    gap: 1em;
 }
 
 .detailsForm input {
     padding: .25em .5em;
     font-size: 1.25rem;
-    width: 6ch;
+    width: 10ch;
 }
 
 .buttons {
