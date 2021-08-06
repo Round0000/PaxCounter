@@ -28,7 +28,7 @@
         <button type="submit">Confirmer</button>
     </form>
 
-    <div class="sessionUI">
+    <div class="sessionUI d-none">
         <div class="details">
             <div class="startDetails">
                 <p>Nombre de pax : <span class="totalPax"></span></p>
@@ -46,7 +46,13 @@
             <button class="plus">+</button>
         </div>
 
-        <button class="reset">Reset</button>
+        <div class="footer">
+            <div class="timestamps"></div>
+            <div class="footerButtons">
+                <button class="reset">Reset</button>
+                <button class="sendbus">Send bus</button>
+            </div>
+        </div>
     </div>
     
     <script src="app.js"></script>

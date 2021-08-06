@@ -1,13 +1,15 @@
 const buttonPlus = document.querySelector('button.plus');
 const buttonMinus = document.querySelector('button.minus');
+const buttonSendbus = document.querySelector('button.sendbus');
 const buttonReset = document.querySelector('button.reset');
-const currentCountDisplay = document.querySelector('.currentCount');
 const totalPaxDisplay = document.querySelector('.totalPax');
 const totalBusDisplay = document.querySelector('.totalBus');
 const equalSplitDisplay = document.querySelector('.equalSplit');
 const remainingPaxDisplay = document.querySelector('.remainingPax');
+const currentCountDisplay = document.querySelector('.currentCount');
 const detailsForm = document.querySelector('.detailsForm');
 const sessionUI = document.querySelector('.sessionUI');
+const timestampsDisplay = document.querySelector('.timestamps');
 
 let session = {};
 
@@ -47,7 +49,7 @@ detailsForm.addEventListener('submit', e => {
 buttonPlus.addEventListener('click', e => {
     if (session.remainingPax > 0) {
         session.currentCount += 1;
-        session.remainingPax = session.totalPax - session.currentCount;
+        session.remainingPax -= 1;
         updateUI();
     }
 });
@@ -55,7 +57,7 @@ buttonPlus.addEventListener('click', e => {
 buttonMinus.addEventListener('click', e => {
     if (session.currentCount > 0) {
         session.currentCount -= 1;
-        session.remainingPax = session.totalPax - session.currentCount;
+        session.remainingPax += 1;
         updateUI();
     };
 });
@@ -63,15 +65,30 @@ buttonMinus.addEventListener('click', e => {
 window.addEventListener('keydown', (event) => {
     if (event.code === 'ArrowRight' && session.ongoing && session.remainingPax > 0) {
         session.currentCount += 1;
-        session.remainingPax = session.totalPax - session.currentCount;
+        session.remainingPax -= 1;
         updateUI();
-    }
+    };
     if (event.code === 'ArrowLeft' && session.ongoing && session.currentCount > 0) {
         session.currentCount -= 1;
-        session.remainingPax = session.totalPax - session.currentCount;
+        session.remainingPax += 1;
         updateUI();
-      }
-  });
+    };
+});
+
+buttonSendbus.addEventListener('click', e => {
+    if (window.confirm('Confirm the bus departure ?')) {
+        session.currentCount = 0;
+
+        let time = new Date(Date.now());
+        session.busDepartures = [];
+        session.busDepartures.push(time.getHours() + ":" + time.getMinutes());
+        
+        let newTimestamp = document.createElement('P');
+        newTimestamp.innerHTML = `Bus parti à : <span class="timestamp">${session.busDepartures[session.busDepartures.length - 1]}</span>`;
+        timestampsDisplay.appendChild(newTimestamp);
+        updateUI();
+    };
+});
 
 buttonReset.addEventListener('click', e => {
     if (window.confirm('Are you sure you want to reset ?')) {
