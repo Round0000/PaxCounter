@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Nunito', sans-serif;
-    padding: calc(.5em + 4vw);
+    padding: calc(.5em + 2vw);
     touch-action: manipulation;
     background-color: hsl(210, 20%, 98%);
 }
@@ -72,6 +72,8 @@ button {
     font-size: calc(2rem + 4vw);
     padding: .5em;
     user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
 }
 
 button:active {
