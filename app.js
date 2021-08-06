@@ -44,6 +44,7 @@ detailsForm.addEventListener('submit', e => {
     sessionUI.classList.remove("d-none");
     detailsForm.reset();
     detailsForm.classList.add("d-none");
+    timestampsDisplay.innerHTML = '';
 });
 
 buttonPlus.addEventListener('click', e => {
@@ -81,10 +82,10 @@ buttonSendbus.addEventListener('click', e => {
 
         let time = new Date(Date.now());
         session.busDepartures = [];
-        session.busDepartures.push(time.getHours() + ":" + time.getMinutes());
+        session.busDepartures.push(time.toTimeString().slice(0, 5));
         
         let newTimestamp = document.createElement('P');
-        newTimestamp.innerHTML = `Bus parti à : <span class="timestamp">${session.busDepartures[session.busDepartures.length - 1]}</span>`;
+        newTimestamp.innerHTML = `Départ : <span class="timestamp">${session.busDepartures[session.busDepartures.length - 1]}</span>`;
         timestampsDisplay.appendChild(newTimestamp);
         updateUI();
     };
