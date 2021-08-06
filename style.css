@@ -111,7 +111,6 @@ button:focus {
     display: flex;
     flex-direction: column;
     gap: 1.5em;
-    max-width: 300px;
     margin: auto;
 }
 
@@ -119,11 +118,13 @@ button:focus {
     display: flex;
     gap: 1em;
     justify-content: center;
+    height: 4em;
 }
 
 .footer p {
     background-color: hsl(210, 20%, 95%);
     padding: .25em .5em;
+    width: max-content;
 }
 
 .footer span {
